@@ -42,4 +42,3 @@ jobs:
           omitPrereleaseDuringUpdate: true
           body: ${{ format('Release {0}', github.ref_name) }}
           generateReleaseNotes: true
-          makeLatest: true

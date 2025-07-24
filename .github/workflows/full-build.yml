@@ -15,37 +15,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: windows-latest
-            rust-target: x86_64-pc-windows-msvc
-            vscode-target: win32-x64
-
-          - os: windows-latest
-            rust-target: aarch64-pc-windows-msvc
-            vscode-target: win32-arm64
-
           - os: ubuntu-latest
             rust-target: x86_64-unknown-linux-gnu
             vscode-target: linux-x64
-
-          - os: ubuntu-latest
-            rust-target: aarch64-unknown-linux-gnu
-            vscode-target: linux-arm64
-
-          - os: ubuntu-latest
-            rust-target: x86_64-unknown-linux-musl
-            vscode-target: alpine-x64
-
-          - os: ubuntu-latest
-            rust-target: arm-unknown-linux-gnueabihf
-            vscode-target: linux-armhf
-
-          - os: macos-latest
-            rust-target: x86_64-apple-darwin
-            vscode-target: darwin-x64
-
-          - os: macos-latest
-            rust-target: aarch64-apple-darwin
-            vscode-target: darwin-arm64
 
     name: ${{ matrix.rust-target }}
     runs-on: ${{ matrix.os }}

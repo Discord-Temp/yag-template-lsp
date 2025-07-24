@@ -87,4 +87,3 @@ jobs:
           tag: ${{ env.VERSION }}
           body: ${{ env.RELEASE_NOTES }}
           generateReleaseNotes: true
-          makeLatest: true

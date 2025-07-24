@@ -39,7 +39,7 @@ jobs:
 
           This check is run automatically every day at 00:00 UTC. Go to the [Actions tab][new-funcs-workflow] to manually trigger an update.
 
-          [new-funcs-workflow]: https://github.com/YAGPDB-Tools/yag-template-lsp/actions/workflows/new-funcs.yml
+          [new-funcs-workflow]: https://github.com/Discord-Temp/yag-template-lsp/actions/workflows/new-funcs.yml
 
           _Last updated at: $(date -u +"%Y-%m-%d %H:%M:%S UTC")_
           EOF
