@@ -1,0 +1,90 @@
+name: Tag and release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release, must follow SemVer format prefixed with "v" (vX.Y.Z / etc)'
+        required: true
+        type: string
+      release-notes:
+        description: 'Release notes (optional)'
+        required: false
+        type: string
+        default: 'Release {version}'
+
+env:
+  # regex: SemVer prefixed with "v" (without named or non-capturing groups)
+  VERSION_REGEX: ^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-((0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\+([0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*))?$
+  VERSION: ${{ inputs.version }}
+  RELEASE_NOTES: ${{ inputs.release-notes }}
+
+jobs:
+  tag-new-release:
+    name: tag new release
+    runs-on: ubuntu-latest
+    permissions:
+      # needed to push tag
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Tag new release
+        run: |
+          if ! [ $(echo "$VERSION" | grep -P "$VERSION_REGEX") ]; then
+            echo "Invalid version provided:"
+            echo "$VERSION"
+            echo "Version must follow SemVer format prefixed with \"v\" (vX.Y.Z / etc)"
+            exit 1
+          fi
+
+          if [ $(git tag -l "$VERSION") ]; then
+            echo "Tag for provided version already exists"
+          else
+            git config --local user.name "$GITHUB_ACTOR";
+            git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+            git tag -a "$VERSION" -m "Release ${VERSION}";
+            git push origin --follow-tags
+          fi
+
+  build:
+    needs: tag-new-release
+    if: success()
+    uses: ./.github/workflows/full-build.yml
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: success()
+    permissions:
+      # needed to create releases
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Display structure of downloaded files
+        run: ls -R artifacts
+
+      - name: Format release notes
+        run: echo "RELEASE_NOTES=${RELEASE_NOTES//"{version}"/"$VERSION"}" | tee -a "$GITHUB_ENV"
+
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: 'artifacts/*/*'
+          replacesArtifacts: true
+          artifactErrorsFailBuild: true
+          allowUpdates: true
+          omitBodyDuringUpdate: true
+          omitDraftDuringUpdate: true
+          omitNameDuringUpdate: true
+          omitPrereleaseDuringUpdate: true
+          tag: ${{ env.VERSION }}
+          body: ${{ env.RELEASE_NOTES }}
+          generateReleaseNotes: true
+          makeLatest: true

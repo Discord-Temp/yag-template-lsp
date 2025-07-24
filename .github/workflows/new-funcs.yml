@@ -20,7 +20,7 @@ jobs:
         with:
           go-version: 1.22
 
-      - run: go install github.com/jo3-l/yagfuncdata/cmd/lytfs@latest
+      - run: go install github.com/YAGPDB-Tools/yagfuncdata/cmd/lytfs@latest
 
       - name: Generate diff against lytfs and create issue if needed
         run: |
@@ -39,7 +39,7 @@ jobs:
 
           This check is run automatically every day at 00:00 UTC. Go to the [Actions tab][new-funcs-workflow] to manually trigger an update.
 
-          [new-funcs-workflow]: https://github.com/jo3-l/yag-template-lsp/actions/workflows/new-funcs.yml
+          [new-funcs-workflow]: https://github.com/YAGPDB-Tools/yag-template-lsp/actions/workflows/new-funcs.yml
 
           _Last updated at: $(date -u +"%Y-%m-%d %H:%M:%S UTC")_
           EOF
@@ -48,7 +48,7 @@ jobs:
             if [ -n "$existing_issue" ]; then
               gh issue edit "$existing_issue" --body "$issue_body"
             else
-              gh issue create --title "Bundled function definitions are outdated" --body "$issue_body" --label new-funcs --assignee jo3-l
+              gh issue create --title "Bundled function definitions are outdated" --body "$issue_body" --label new-funcs
             fi
           else
             echo "no new functions"
