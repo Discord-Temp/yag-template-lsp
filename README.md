@@ -1,4 +1,4 @@
-0.2.7
+0.2.8-alpha
 # YAGPDB Template LSP - fork
 
 <a href="https://github.com/Discord-Temp/yag-template-lsp/releases/latest"><img src="https://img.shields.io/github/v/release/Discord-Temp/yag-template-lsp?style=for-the-badge&color=1f6feb" alt="GitHub Release"></a>
