@@ -1,7 +1,7 @@
 # YAGPDB Template LSP - fork
 
-<a href="https://github.com/YAGPDB-Tools/yag-template-lsp/releases/latest"><img src="https://img.shields.io/github/v/release/YAGPDB-Tools/yag-template-lsp?style=for-the-badge&color=1f6feb" alt="GitHub Release"></a>
-<a href="https://github.com/YAGPDB-Tools/yag-template-lsp/actions"><img src="https://img.shields.io/github/actions/workflow/status/YAGPDB-Tools/yag-template-lsp/ci.yml?style=for-the-badge" alt="GitHub build status"></a>
+<a href="https://github.com/Discord-Temp/yag-template-lsp/releases/latest"><img src="https://img.shields.io/github/v/release/Discord-Temp/yag-template-lsp?style=for-the-badge&color=1f6feb" alt="GitHub Release"></a>
+<a href="https://github.com/Discord-Temp/yag-template-lsp/actions"><img src="https://img.shields.io/github/actions/workflow/status/Discord-Temp/yag-template-lsp/ci.yml?style=for-the-badge" alt="GitHub build status"></a>
 
 # Original version - [jo3-l/yag-template-lsp](https://github.com/jo3-l/yag-template-lsp)
 
@@ -43,7 +43,7 @@ In the medium term, we would like to implement:
 As a low-priority, long-term goal, we aim to better modularize and test the language server implementation (and indeed
 the project as a whole.)
 
-[typeck-branch]: https://github.com/YAGPDB-Tools/yag-template-lsp/tree/feat/typechecking
+[typeck-branch]: https://github.com/Discord-Temp/yag-template-lsp/tree/feat/typechecking
 
 ## Architecture overview
 
@@ -66,13 +66,13 @@ split into the following crates:
 - [`yag-template-lsp`][lsp-crate-dir], which implements the actual language server protocol
   using [tower-lsp](https://github.com/ebkalderon/tower-lsp).
 
-[crates-dir]: https://github.com/YAGPDB-Tools/yag-template-lsp/tree/main/crates/
-[bundled-defs-dir]: https://github.com/YAGPDB-Tools/yag-template-lsp/tree/main/bundled-defs/README.md
-[syntax-crate-dir]: https://github.com/YAGPDB-Tools/yag-template-lsp/tree/main/crates/yag-template-syntax
-[analysis-crate-dir]: https://github.com/YAGPDB-Tools/yag-template-lsp/tree/main/crates/yag-template-analysis
-[envdefs-crate-dir]: https://github.com/YAGPDB-Tools/yag-template-lsp/tree/main/crates/yag-template-envdefs
-[lsp-crate-dir]: https://github.com/YAGPDB-Tools/yag-template-lsp/tree/main/crates/yag-template-lsp
-[editors-vscode-dir]: https://github.com/YAGPDB-Tools/yag-template-lsp/tree/main/editors/vscode
+[crates-dir]: https://github.com/Discord-Temp/yag-template-lsp/tree/main/crates/
+[bundled-defs-dir]: https://github.com/Discord-Temp/yag-template-lsp/tree/main/bundled-defs/README.md
+[syntax-crate-dir]: https://github.com/Discord-Temp/yag-template-lsp/tree/main/crates/yag-template-syntax
+[analysis-crate-dir]: https://github.com/Discord-Temp/yag-template-lsp/tree/main/crates/yag-template-analysis
+[envdefs-crate-dir]: https://github.com/Discord-Temp/yag-template-lsp/tree/main/crates/yag-template-envdefs
+[lsp-crate-dir]: https://github.com/Discord-Temp/yag-template-lsp/tree/main/crates/yag-template-lsp
+[editors-vscode-dir]: https://github.com/Discord-Temp/yag-template-lsp/tree/main/editors/vscode
 
 ### Inspiration
 

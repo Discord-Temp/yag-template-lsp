@@ -5,12 +5,12 @@
 	"icon": "icon.png",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/YAGPDB-Tools/yag-template-lsp"
+		"url": "https://github.com/Discord-Temp/yag-template-lsp"
 	},
 	"author": "Joseph Liu",
 	"publisher": "jo3-l",
 	"license": "MIT",
-	"version": "0.2.4-alpha.cv2",
+	"version": "0.2.5-alpha.cv2",
 	"engines": {
 		"vscode": "^1.76.0"
 	},
