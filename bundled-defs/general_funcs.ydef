@@ -450,6 +450,9 @@ func complexMessageEdit(opts...)
 
 	All keys are optional.
 
+func componentBuilder(opts...)
+	Creates a components V2 message object that can then be passed to the `sendComponentMessage` functions.
+
 func kindOf(value, indirect?)
 	Returns the [reflection kind](https://pkg.go.dev/reflect#Kind) of the provided value.
 

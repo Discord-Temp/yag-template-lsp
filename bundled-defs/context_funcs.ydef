@@ -5,6 +5,12 @@ func editMessage(channel, messageID, newContent)
 func editMessageNoEscape(channel, messageID, newContent)
 	Edits the specified message without escaping mentions.
 
+func editComponentMessage(channel, messageID, newContent)
+	Edits the specified components V2 message, escaping any mentions in the content.
+
+func editComponentMessageNoEscape(channel, messageID, newContent)
+	Edits the specified components V2 message without escaping mentions.
+
 func pinMessage(channel, messageID)
 	Pins the specified message.
 
@@ -30,6 +36,18 @@ func sendMessageNoEscape(channel, message)
 
 func sendMessageNoEscapeRetID(channel, message)
 	Same as `sendMessageNoEscape`, but returns the message ID.
+
+func sendComponentMessage(channel, message)
+	Sends a components V2 message to the specified channel, escaping any role, @everyone, or @here mentions in the content.
+
+func sendComponentMessageRetID(channel, message)
+	Same as `sendComponentMessage`, but returns the message ID.
+
+func sendComponentMessageNoEscape(channel, message)
+	Sends a components V2 message to the specified channel without escaping any mentions.
+
+func sendComponentMessageNoEscapeRetID(channel, message)
+	Same as `sendComponentMessageNoEscape`, but returns the message ID.
 
 func sendTemplate(channel, template, data?)
 	Executes the specified associated template with optional data and sends its response to `channel`, returning the ID
