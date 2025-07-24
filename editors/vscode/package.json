@@ -5,7 +5,7 @@
 	"icon": "icon.png",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/jo3-l/yag-template-lsp"
+		"url": "https://github.com/YAGPDB-Tools/yag-template-lsp"
 	},
 	"author": "Joseph Liu",
 	"publisher": "jo3-l",

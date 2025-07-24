@@ -2,7 +2,7 @@
 
 The `.ydef` files in this directory define the set of template functions available to YAGDPB templates, and are used by
 the language server for hover documentation and error reporting. Since these files are [embedded into the language
-server binary](https://github.com/jo3-l/yag-template-lsp/blob/main/crates/yag-template-envdefs/src/bundled_envdefs.rs)
+server binary](https://github.com/YAGPDB-Tools/yag-template-lsp/blob/main/crates/yag-template-envdefs/src/bundled_envdefs.rs)
 at build time, any changes made will only be reflected after a fresh build.
 
 ## File format
