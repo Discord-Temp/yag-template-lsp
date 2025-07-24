@@ -208,7 +208,7 @@ impl Parser<'_> {
         if at {
             self.eat();
         } else {
-            self.err_recover(format!("expected {}", kind), recover);
+            self.err_recover(format!("expected {kind}"), recover);
         }
         at
     }
@@ -222,7 +222,7 @@ impl Parser<'_> {
         if at {
             self.eat();
         } else {
-            self.err_and_eat(format!("expected {}", kind));
+            self.err_and_eat(format!("expected {kind}"));
         }
         at
     }
